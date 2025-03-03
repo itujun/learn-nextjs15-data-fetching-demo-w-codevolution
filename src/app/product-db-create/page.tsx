@@ -1,7 +1,7 @@
 'use client';
 
 import { addProduct, FormState } from '@/actions/products';
-import { SubmitButton } from '@/components/SubmitButton';
+// import { SubmitButton } from '@/components/SubmitButton';
 import { useActionState } from 'react';
 
 export default function ProductDBCreatePage() {
@@ -60,7 +60,14 @@ export default function ProductDBCreatePage() {
       >
         Submit
       </button> */}
-      <SubmitButton />
+      {/* <SubmitButton /> */}
+      <button
+        type="submit"
+        className="block w-full p-2 text-white bg-blue-500 rounded disabled:bg-gray-500"
+        disabled={isPending}
+      >
+        {isPending ? 'Submiting...' : 'Submit'}
+      </button>
     </form>
   );
 }
