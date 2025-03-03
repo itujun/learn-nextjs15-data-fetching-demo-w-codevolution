@@ -1,6 +1,7 @@
 'use client';
 
 import { addProduct, FormState } from '@/actions/products';
+import Form from 'next/form';
 // import { SubmitButton } from '@/components/SubmitButton';
 import { useActionState } from 'react';
 
@@ -14,7 +15,7 @@ export default function ProductDBCreatePage() {
     initialState
   );
   return (
-    <form action={formAction} className="p-4 space-y-4 max-w-96">
+    <Form action={formAction} className="p-4 space-y-4 max-w-96">
       <div>
         <label htmlFor="title" className="text-white">
           Title
@@ -68,6 +69,6 @@ export default function ProductDBCreatePage() {
       >
         {isPending ? 'Submiting...' : 'Submit'}
       </button>
-    </form>
+    </Form>
   );
 }

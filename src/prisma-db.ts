@@ -31,8 +31,22 @@ const seedProducts = async () => {
 seedProducts();
 
 // get Products
-export async function getProducts() {
+export async function getProducts(query?: string) {
   await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // cek query
+  if (query) {
+    return prisma.products.findMany({
+      where: {
+        OR: [
+          { title: { contains: query } },
+          { description: { contains: query } },
+        ],
+      },
+    });
+  }
+
+  // jika tidak ada query
   return prisma.products.findMany();
 }
 

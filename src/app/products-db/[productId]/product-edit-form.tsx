@@ -3,6 +3,7 @@
 import { editProduct, FormState } from '@/actions/products';
 import { useActionState } from 'react';
 import { ProductType } from '../page';
+import Form from 'next/form';
 
 export default function ProductEditForm({ product }: { product: ProductType }) {
   const initialState: FormState = {
@@ -17,7 +18,7 @@ export default function ProductEditForm({ product }: { product: ProductType }) {
   );
 
   return (
-    <form action={formAction} className="p-4 space-y-4 max-w-96">
+    <Form action={formAction} className="p-4 space-y-4 max-w-96">
       <input type="hidden" name="id" value={product.id} />
       <div>
         <label htmlFor="title" className="text-white">
@@ -68,6 +69,6 @@ export default function ProductEditForm({ product }: { product: ProductType }) {
       >
         {isPending ? 'Submiting...' : 'Submit'}
       </button>
-    </form>
+    </Form>
   );
 }
